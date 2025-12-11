@@ -9,7 +9,7 @@ public class Jeu
     public Jeu()
     {
         _plateau = new Plateau();
-        _joueur1 = new Joueur('N');
+        _joueur1 = new Joueur('X');
         _joueur2 = new Joueur('O');
     }
 
@@ -18,6 +18,7 @@ public class Jeu
         char resultat = ' ';
         Joueur joueurActuel = _joueur1;
 
+        Console.Clear();
         Console.WriteLine("TD | Croix rond!");
         _plateau.Afficher_grille();
 
@@ -25,16 +26,14 @@ public class Jeu
         {
             joueurActuel.JouerTour(_plateau);
 
+            Console.Clear();
             _plateau.Afficher_grille();
 
             resultat = _plateau.VerifierFinDePartie();
 
             if (resultat == ' ')
             {
-                if (joueurActuel == _joueur1)
-                    joueurActuel = _joueur2;
-                else
-                    joueurActuel = _joueur1;
+                joueurActuel = (joueurActuel == _joueur1) ? _joueur2 : _joueur1;
             }
         }
 

@@ -17,12 +17,10 @@ public class Joueur
         {
             Console.WriteLine($"\n|||||||| C'est au tour du joueur {Symbole} ||||||||");
 
-            
-            ligne = SaisirEntier($"Joueur {Symbole}, entre la ligne (0-2) : ");
-            colonne = SaisirEntier($"Joueur {Symbole}, entre la colonne (0-2) : ");
+            ligne = SaisirEntier($"Joueur {Symbole}, entre la ligne (1-3) : ");
+            colonne = SaisirEntier($"Joueur {Symbole}, entre la colonne (1-3) : ");
 
-
-            bool coupValide = plateau.PlacerCoup(ligne, colonne, Symbole);
+            bool coupValide = plateau.PlacerCoup(ligne - 1, colonne - 1, Symbole);
 
             if (coupValide)
             {
@@ -30,29 +28,28 @@ public class Joueur
             }
             else
             {
-                Console.WriteLine("Mouvement impossible : Case occupée ou hors limites. Réessaie.");
+                Console.WriteLine("Mouvement impossible : Case occupée. Réessaie.");
             }
         }
     }
 
- 
     private int SaisirEntier(string message)
     {
         int valeur;
         while (true)
         {
             Console.Write(message);
-            string saisie = Console.ReadLine();
+            string? saisie = Console.ReadLine(); 
 
             if (int.TryParse(saisie, out valeur))
             {
-                if (valeur >= 0 && valeur <= 2)
+                if (valeur >= 1 && valeur <= 3)
                 {
                     return valeur;
                 }
                 else
                 {
-                    Console.WriteLine("Erreur : Le chiffre doit être entre 0 et 2.");
+                    Console.WriteLine("Erreur : Le chiffre doit être entre 1 et 3.");
                 }
             }
             else
