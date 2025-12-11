@@ -28,7 +28,20 @@ public class Plateau
             Console.Write((i + 1) + " ");
             for (int j = 0; j < Taille; j++)
             {
+                if (_grille[i, j] == 'X')
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                else if (_grille[i, j] == 'O')
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan; 
+                }
+
                 Console.Write(_grille[i, j]);
+
+     
+                Console.ResetColor();
+
                 if (j < Taille - 1) Console.Write(" | ");
             }
             Console.WriteLine();

@@ -9,8 +9,8 @@ public class Jeu
     public Jeu()
     {
         _plateau = new Plateau();
-        _joueur1 = new Joueur('X');
-        _joueur2 = new Joueur('O');
+        _joueur1 = new JoueurHumain('X');
+        _joueur2 = new JoueurRobot('O');
     }
 
     public void LancerPartie()

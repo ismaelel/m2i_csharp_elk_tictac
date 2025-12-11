@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Joueur
+public abstract class Joueur
 {
     public char Symbole { get; private set; }
 
@@ -9,29 +9,31 @@ public class Joueur
         Symbole = symbole;
     }
 
-    public void JouerTour(Plateau plateau)
-    {
-        int ligne, colonne;
+    public abstract void JouerTour(Plateau plateau);
 
-        while (true)
-        {
-            Console.WriteLine($"\n|||||||| C'est au tour du joueur {Symbole} ||||||||");
+    //public void JouerTour(Plateau plateau)
+    //{
+    //    int ligne, colonne;
 
-            ligne = SaisirEntier($"Joueur {Symbole}, entre la ligne (1-3) : ");
-            colonne = SaisirEntier($"Joueur {Symbole}, entre la colonne (1-3) : ");
+    //    while (true)
+    //    {
+    //        Console.WriteLine($"\n|||||||| C'est au tour du joueur {Symbole} ||||||||");
 
-            bool coupValide = plateau.PlacerCoup(ligne - 1, colonne - 1, Symbole);
+    //        ligne = SaisirEntier($"Joueur {Symbole}, entre la ligne (1-3) : ");
+    //        colonne = SaisirEntier($"Joueur {Symbole}, entre la colonne (1-3) : ");
 
-            if (coupValide)
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Mouvement impossible : Case occupée. Réessaie.");
-            }
-        }
-    }
+    //        bool coupValide = plateau.PlacerCoup(ligne - 1, colonne - 1, Symbole);
+
+    //        if (coupValide)
+    //        {
+    //            break;
+    //        }
+    //        else
+    //        {
+    //            Console.WriteLine("Mouvement impossible : Case occupée. Réessaie.");
+    //        }
+    //    }
+    //}
 
     private int SaisirEntier(string message)
     {
