@@ -1,0 +1,15 @@
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\bin\Debug\net10.0\m2i_csharp_elk_tictac.exe
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\bin\Debug\net10.0\m2i_csharp_elk_tictac.deps.json
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\bin\Debug\net10.0\m2i_csharp_elk_tictac.runtimeconfig.json
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\bin\Debug\net10.0\m2i_csharp_elk_tictac.dll
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\bin\Debug\net10.0\m2i_csharp_elk_tictac.pdb
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.AssemblyInfoInputs.cache
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.AssemblyInfo.cs
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.csproj.CoreCompileInputs.cache
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.sourcelink.json
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.dll
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\refint\m2i_csharp_elk_tictac.dll
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.pdb
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\m2i_csharp_elk_tictac.genruntimeconfig.cache
+C:\Users\ismae\source\repos\m2i_csharp_elk_tictac\m2i_csharp_elk_tictac\obj\Debug\net10.0\ref\m2i_csharp_elk_tictac.dll
