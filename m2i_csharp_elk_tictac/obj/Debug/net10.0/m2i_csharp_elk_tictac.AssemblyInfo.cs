@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("m2i_csharp_elk_tictac")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3594b212974c0d418c8e76f8df40a3218f3babbb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bae96f800a61de3285fa02aae729a9158f945bc1")]
 [assembly: System.Reflection.AssemblyProductAttribute("m2i_csharp_elk_tictac")]
 [assembly: System.Reflection.AssemblyTitleAttribute("m2i_csharp_elk_tictac")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

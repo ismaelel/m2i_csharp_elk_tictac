@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Joueur
+public abstract class Joueur
 {
     public char Symbole { get; private set; }
 
@@ -9,50 +9,49 @@ public class Joueur
         Symbole = symbole;
     }
 
-    public void JouerTour(Plateau plateau)
-    {
-        int ligne, colonne;
+    public abstract void JouerTour(Plateau plateau);
 
-        while (true)
-        {
-            Console.WriteLine($"\n|||||||| C'est au tour du joueur {Symbole} ||||||||");
+    //public void JouerTour(Plateau plateau)
+    //{
+    //    int ligne, colonne;
 
-            
-            ligne = SaisirEntier($"Joueur {Symbole}, entre la ligne (0-2) : ");
-            colonne = SaisirEntier($"Joueur {Symbole}, entre la colonne (0-2) : ");
+    //    while (true)
+    //    {
+    //        Console.WriteLine($"\n|||||||| C'est au tour du joueur {Symbole} ||||||||");
 
+    //        ligne = SaisirEntier($"Joueur {Symbole}, entre la ligne (1-3) : ");
+    //        colonne = SaisirEntier($"Joueur {Symbole}, entre la colonne (1-3) : ");
 
-            bool coupValide = plateau.PlacerCoup(ligne, colonne, Symbole);
+    //        bool coupValide = plateau.PlacerCoup(ligne - 1, colonne - 1, Symbole);
 
-            if (coupValide)
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Mouvement impossible : Case occupée ou hors limites. Réessaie.");
-            }
-        }
-    }
+    //        if (coupValide)
+    //        {
+    //            break;
+    //        }
+    //        else
+    //        {
+    //            Console.WriteLine("Mouvement impossible : Case occupée. Réessaie.");
+    //        }
+    //    }
+    //}
 
- 
     private int SaisirEntier(string message)
     {
         int valeur;
         while (true)
         {
             Console.Write(message);
-            string saisie = Console.ReadLine();
+            string? saisie = Console.ReadLine(); 
 
             if (int.TryParse(saisie, out valeur))
             {
-                if (valeur >= 0 && valeur <= 2)
+                if (valeur >= 1 && valeur <= 3)
                 {
                     return valeur;
                 }
                 else
                 {
-                    Console.WriteLine("Erreur : Le chiffre doit être entre 0 et 2.");
+                    Console.WriteLine("Erreur : Le chiffre doit être entre 1 et 3.");
                 }
             }
             else
