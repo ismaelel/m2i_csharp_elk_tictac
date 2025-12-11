@@ -39,59 +39,29 @@ public class Plateau
         Console.WriteLine();
     }
 
-    
+
 
     public char VerifierFinDePartie()
     {
-        // Vérification des lignes
-        for (int i = 0; i < 3; i++)
-        {
-            if ( _grille[i, 0] != ' ' &&
-                _grille[i, 0] == _grille[i, 1] &&
-                _grille[i, 1] == _grille[i, 2])
+    
+        char winner = Enumerable.Range(0, 3)
+            .SelectMany(i => new[]
             {
-                return _grille[i, 0]; // X ou O
-            }
-        }
+            // ligne
+            _grille[i, 0] == _grille[i, 1] && _grille[i, 1] == _grille[i, 2] ? _grille[i, 0] : ' ', 
+            // colonne
+            _grille[0, i] == _grille[1, i] && _grille[1, i] == _grille[2, i] ? _grille[0, i] : ' '
+            })
+            // diagonale 1
+            .Append(_grille[0, 0] == _grille[1, 1] && _grille[1, 1] == _grille[2, 2] ? _grille[1, 1] : ' ')
+            // diagonale 2
+            .Append(_grille[0, 2] == _grille[1, 1] && _grille[1, 1] == _grille[2, 0] ? _grille[1, 1] : ' ')
+            // premier résultat qui n'est pas un espace
+            .FirstOrDefault(c => c != ' ');
 
-        // Vérification des colonnes
-        for (int j = 0; j < 3; j++)
-        {
-            if (_grille[0, j] != ' ' &&
-                _grille[0, j] == _grille[1, j] &&
-                _grille[1, j] == _grille[2, j])
-            {
-                return _grille[0, j]; // X ou O
-            }
-        }
+        if (winner != '\0' && winner != ' ') return winner;
 
-        // vérification des diagonales
-        if (_grille[1, 1] != ' ')
-        {
-            // Diagonale 1
-            if (_grille[0, 0] == _grille[1, 1] && _grille[1, 1] == _grille[2, 2])
-                return _grille[1, 1];
-
-            // Diagonale 2
-            if (_grille[0, 2] == _grille[1, 1] && _grille[1, 1] == _grille[2, 0])
-                return _grille[1, 1];
-        }
-
-        // si le _grille est plein → match nul
-        bool plein = true;
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                if (_grille[i, j] == ' ')
-                    plein = false;
-            }
-        }
-
-        if (plein)
-            return 'N';
-
-        return ' '; // Partie non terminée
+        return _grille.Cast<char>().Any(c => c == ' ') ? ' ' : 'N';
     }
 
     public bool PlacerCoup(int ligne, int colonne, char symboleJoueur)
