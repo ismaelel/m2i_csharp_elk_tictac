@@ -42,7 +42,6 @@ class Program
         }
 
 
-        // on propose de rejouer
         Console.WriteLine("Si vous souhaitez rejouer appuyez sur o, sinon n'importe quelle autre touche !");
         if (Console.ReadLine().ToLower() == "o")
         {
