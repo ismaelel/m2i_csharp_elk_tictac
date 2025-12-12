@@ -2,7 +2,7 @@
 class Program
 {
 
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         bool continuer = true;
 
@@ -11,7 +11,7 @@ class Program
 
             Jeu partie = new Jeu();
 
-            partie.LancerPartie();
+            await partie.LancerPartie();
 
             Console.WriteLine("Rejouer ? (o/n)");
             if (Console.ReadLine() != "o")

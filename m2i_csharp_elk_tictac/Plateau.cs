@@ -19,7 +19,7 @@ public class Plateau
                 _grille[i, j] = ' ';
     }
 
-    public void Afficher_grille()
+    public virtual void Afficher_grille()
     {
         Console.WriteLine();
         Console.WriteLine("  1   2   3");
@@ -50,7 +50,7 @@ public class Plateau
         Console.WriteLine();
     }
 
-    public char VerifierFinDePartie()
+    public virtual char VerifierFinDePartie()
     {
         char winner = Enumerable.Range(0, 3)
             .SelectMany(i => new[]

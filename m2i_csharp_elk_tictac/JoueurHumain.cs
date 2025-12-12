@@ -4,7 +4,7 @@ public class JoueurHumain : Joueur
 {
     public JoueurHumain(char symbole) : base(symbole) { }
 
-    public override void JouerTour(Plateau plateau)
+    public override Task JouerTour(Plateau plateau)
     {
         int ligne, colonne;
 
@@ -20,6 +20,8 @@ public class JoueurHumain : Joueur
             if (coupValide) break;
             else Console.WriteLine("Mouvement impossible : Case occupée. Réessaie.");
         }
+
+        return Task.CompletedTask;
     }
 
     private int SaisirEntier(string message)
