@@ -4,24 +4,26 @@ public class JoueurHumain : Joueur
 {
     public JoueurHumain(char symbole) : base(symbole) { }
 
-    public override Task JouerTour(Plateau plateau)
+    public override Task<bool> JouerTour(Plateau plateau)
     {
-        int ligne, colonne;
-
         while (true)
         {
-            Console.WriteLine($"\n|||||||| C'est au tour du joueur HUMAIN {Symbole} ||||||||");
+            Console.WriteLine($"\n|||||||| Tour du joueur HUMAIN {Symbole} (Tapez 'q' pour quitter) ||||||||");
 
-            ligne = SaisirEntier($"Joueur {Symbole}, entre la ligne (1-3) : ");
-            colonne = SaisirEntier($"Joueur {Symbole}, entre la colonne (1-3) : ");
+            int? ligne = SaisirEntierOuQuitter($"Joueur {Symbole}, entre la ligne (1-3) ou 'q' : ");
+            if (ligne == null) return Task.FromResult(false);
 
-            bool coupValide = plateau.PlacerCoup(ligne - 1, colonne - 1, Symbole);
+            int? colonne = SaisirEntierOuQuitter($"Joueur {Symbole}, entre la colonne (1-3) ou 'q' : ");
+            if (colonne == null) return Task.FromResult(false);
+
+            bool coupValide = plateau.PlacerCoup(ligne.Value - 1, colonne.Value - 1, Symbole);
 
             if (coupValide) break;
-            else Console.WriteLine("Mouvement impossible : Case occupée. Réessaie.");
+            
+            Console.WriteLine("Mouvement impossible : Case occupée. Réessaie.");
         }
 
-        return Task.CompletedTask;
+        return Task.FromResult(true); // Tour terminé avec succès
     }
 
     private int SaisirEntier(string message)
@@ -36,6 +38,23 @@ public class JoueurHumain : Joueur
                 return valeur;
 
             Console.WriteLine("Erreur : Le chiffre doit être entre 1 et 3.");
+        }
+    }
+    
+    private int? SaisirEntierOuQuitter(string message)
+    {
+        while (true)
+        {
+            Console.Write(message);
+            string? saisie = Console.ReadLine()?.Trim().ToLower();
+
+            if (saisie == "q" || saisie == "quitter")
+                return null;
+
+            if (int.TryParse(saisie, out int valeur) && valeur >= 1 && valeur <= 3)
+                return valeur;
+
+            Console.WriteLine("Erreur : Entrez 1, 2, 3 ou 'q' pour quitter.");
         }
     }
 }

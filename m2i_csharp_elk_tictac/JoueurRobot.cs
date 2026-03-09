@@ -9,7 +9,7 @@ public class JoueurRobot : Joueur
         _random = new Random();
     }
 
-    public override async Task JouerTour(Plateau plateau)
+    public override async Task<bool> JouerTour(Plateau plateau)
     {
         Console.WriteLine($"\n|||||||| Le Robot {Symbole} réfléchit... ||||||||");
         
@@ -24,5 +24,7 @@ public class JoueurRobot : Joueur
             coupValide = plateau.PlacerCoup(ligne, colonne, Symbole);
         }
         Console.WriteLine("Le Robot a joué !");
+
+        return true;  // pcq il ne peut pas quitter la partie
     }
 }

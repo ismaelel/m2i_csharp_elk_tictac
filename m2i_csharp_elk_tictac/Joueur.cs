@@ -9,7 +9,7 @@ public abstract class Joueur
         Symbole = symbole;
     }
 
-    public abstract Task JouerTour(Plateau plateau);
+    public abstract Task<bool> JouerTour(Plateau plateau);
 
   
 }

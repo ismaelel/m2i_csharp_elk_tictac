@@ -82,4 +82,26 @@ public class Plateau
         _grille[ligne, colonne] = symboleJoueur;
         return true;
     }
+    
+    public string ExporterGrille()
+    {
+        string export = "";
+        for (int i = 0; i < Taille; i++)
+        for (int j = 0; j < Taille; j++)
+            export += _grille[i, j];
+        return export;
+    }
+
+    public void ImporterGrille(string sauvegarde)
+    {
+        if (string.IsNullOrEmpty(sauvegarde) || sauvegarde.Length < 9) return;
+        
+        int index = 0;
+        for (int i = 0; i < Taille; i++)
+        for (int j = 0; j < Taille; j++)
+        {
+            _grille[i, j] = sauvegarde[index];
+            index++;
+        }
+    }
 }
