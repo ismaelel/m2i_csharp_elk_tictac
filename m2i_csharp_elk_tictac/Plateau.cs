@@ -19,7 +19,7 @@ public class Plateau
                 _grille[i, j] = ' ';
     }
 
-    public void Afficher_grille()
+    public virtual void Afficher_grille()
     {
         Console.WriteLine();
         Console.WriteLine("  1   2   3");
@@ -50,7 +50,7 @@ public class Plateau
         Console.WriteLine();
     }
 
-    public char VerifierFinDePartie()
+    public virtual char VerifierFinDePartie()
     {
         char winner = Enumerable.Range(0, 3)
             .SelectMany(i => new[]
@@ -81,5 +81,27 @@ public class Plateau
 
         _grille[ligne, colonne] = symboleJoueur;
         return true;
+    }
+    
+    public string ExporterGrille()
+    {
+        string export = "";
+        for (int i = 0; i < Taille; i++)
+        for (int j = 0; j < Taille; j++)
+            export += _grille[i, j];
+        return export;
+    }
+
+    public void ImporterGrille(string sauvegarde)
+    {
+        if (string.IsNullOrEmpty(sauvegarde) || sauvegarde.Length < 9) return;
+        
+        int index = 0;
+        for (int i = 0; i < Taille; i++)
+        for (int j = 0; j < Taille; j++)
+        {
+            _grille[i, j] = sauvegarde[index];
+            index++;
+        }
     }
 }

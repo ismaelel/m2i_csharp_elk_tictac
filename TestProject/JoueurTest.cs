@@ -23,7 +23,7 @@ namespace TestProject
         }
 
         [Fact]
-        public void JoueurRobot_PlateauPresquePlein_DevraitTrouverDerniereCase()
+        public async Task JoueurRobot_PlateauPresquePlein_DevraitTrouverDerniereCase()
         {
             // arrange
             var plateau = new Plateau();
@@ -36,7 +36,7 @@ namespace TestProject
             
 
             // act
-            robot.JouerTour(plateau);
+            await robot.JouerTour(plateau);
 
             // assert
             bool estLibre = plateau.PlacerCoup(2, 2, 'X');

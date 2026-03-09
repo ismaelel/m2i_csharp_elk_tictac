@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading; 
 
 public class JoueurRobot : Joueur
 {
@@ -10,11 +9,11 @@ public class JoueurRobot : Joueur
         _random = new Random();
     }
 
-    public override void JouerTour(Plateau plateau)
+    public override async Task<bool> JouerTour(Plateau plateau)
     {
         Console.WriteLine($"\n|||||||| Le Robot {Symbole} réfléchit... ||||||||");
-        Thread.Sleep(1000); 
-
+        
+        await Task.Delay(1000);
         bool coupValide = false;
         while (!coupValide)
         {
@@ -25,5 +24,7 @@ public class JoueurRobot : Joueur
             coupValide = plateau.PlacerCoup(ligne, colonne, Symbole);
         }
         Console.WriteLine("Le Robot a joué !");
+
+        return true;  // pcq il ne peut pas quitter la partie
     }
 }
